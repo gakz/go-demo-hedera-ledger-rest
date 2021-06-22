@@ -24,18 +24,21 @@ THe default URL will be http://localhost:8082/ledgerMessages
 
 Update server.go file to change the port, if desired.
 
-End Points
+##End Points
 GET /ledgerMessages - return all messages for the configured topic
+
 GET /ledgerMessages/<vin> - return messages for the configured topic filtered by VIN
+
 POST /ledgerMessages/ - save message
+
 >  expected format
->  {
->    "vin": "GA94234351",
->    "workdescription": "Oil Change & Tune Up",
->    "servicer": "Smith Auto Repair",
->    "technician": "Joe Smith",
->    "selectedfile": "receipt.jpg"
->  }
+>      {
+>        "vin": "GA94234351",
+>        "workdescription": "Oil Change & Tune Up",
+>        "servicer": "Smith Auto Repair",
+>        "technician": "Joe Smith",
+>        "selectedfile": "receipt.jpg"
+>      }
 
 
-THe code for the UI used to interact with this REST API is in this [repository](https://github.com/droatl2000/node-demo-ledger-ui)
+The code for the UI used to interact with this REST API is in this [repository](https://github.com/droatl2000/node-demo-ledger-ui)
