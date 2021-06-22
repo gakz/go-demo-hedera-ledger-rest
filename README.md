@@ -11,14 +11,16 @@ Adiitionally, you will need a Hedera Portal profile. To create your Hedera Porta
 Before starting the project, update the .env file with your Hedera Account ID and your Private Key.
 
 ## Setup
-### Set port
-.env
-```
-ACCOUNT_ID=
-PRIVATE_KEY=
-TOPIC_ID=
+### Set Hedera Credentials
 
-```
+> .env
+>
+> ACCOUNT_ID= (set account id)
+>
+> PRIVATE_KEY= (set private key)
+>
+> TOPIC_ID= (set later)
+
 
 This project writes messages to a Hedera pub/sub topic, so you will need to create a topic by executing the following command from the project root directory.
 
@@ -26,6 +28,14 @@ This project writes messages to a Hedera pub/sub topic, so you will need to crea
 
 This will create a Hedera pub/sub topic and will return the Topic Id.
 Edit the .env again and set the TOPIC_ID
+
+> .env
+>
+> ACCOUNT_ID=
+>
+> PRIVATE_KEY=
+>
+> TOPIC_ID= (set topic id)
 
 Finally, execute the project.
 
