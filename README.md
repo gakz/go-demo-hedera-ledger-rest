@@ -18,15 +18,16 @@ Before starting the project, update the .env file with your Hedera Account ID an
 >
 > PRIVATE_KEY= (set private key)
 >
-> TOPIC_ID= (set later)
-
+> VEHICLE_EVENT_TOPIC_ID= (set later)
+>
+> VEHICLE_SERVICER_TOPIC_ID= (set later)
 
 This project writes messages to a Hedera pub/sub topic, so you will need to create a topic by executing the following command from the project root directory.
 
 > go run hederaTopicCreation.go
 
-This will create a Hedera pub/sub topic and will return the Topic Id.
-Edit the .env again and set the TOPIC_ID
+This will create a Hedera pub/sub topic and will return the Topic Ids for the application.
+Edit the .env again and set the TOPIC_IDs
 
 > .env
 >
@@ -34,7 +35,9 @@ Edit the .env again and set the TOPIC_ID
 >
 > PRIVATE_KEY=
 >
-> TOPIC_ID= (set topic id)
+> VEHICLE_EVENT_TOPIC_ID= (set topic id)
+>
+> VEHICLE_SERVICER_TOPIC_ID= (set topic id))
 
 Finally, execute the project.
 

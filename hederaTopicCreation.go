@@ -34,9 +34,15 @@ func main() {
 	client := hedera.ClientForTestnet()
 	client.SetOperator(myAccountId, myPrivateKey)
 
+	createTopic(client, "Public Vehicle Event Ledger")
+	createTopic(client, "Authorized Vehicle Servicer Ledger")
+
+}
+
+func createTopic(client *hedera.Client, topicName string) {
 	//Create the transaction
 	transaction := hedera.NewTopicCreateTransaction()
-	transaction.SetTopicMemo("Public Vehicle Ledger Ledger")
+	transaction.SetTopicMemo(topicName)
 
 	//Sign with the client operator private key and submit the transaction to a Hedera network
 	txResponse, err := transaction.Execute(client)
@@ -55,8 +61,5 @@ func main() {
 	//Get the topic ID
 	newTopicID := *transactionReceipt.TopicID
 
-	fmt.Printf("The new topic ID is %v\n", newTopicID)
-
-	//v2.0.0
-
+	fmt.Printf("%v topic ID is %v\n", topicName, newTopicID)
 }
