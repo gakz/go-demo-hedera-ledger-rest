@@ -24,7 +24,8 @@ THe default URL will be http://localhost:8082/ledgerMessages
 
 Update server.go file to change the port, if desired.
 
-##End Points
+## End Points
+
 GET /ledgerMessages - return all messages for the configured topic
 
 GET /ledgerMessages/<vin> - return messages for the configured topic filtered by VIN
@@ -33,11 +34,17 @@ POST /ledgerMessages/ - save message
 
 >  expected format
 >      {
+>
 >        "vin": "GA94234351",
+>  
 >        "workdescription": "Oil Change & Tune Up",
+>
 >        "servicer": "Smith Auto Repair",
+>
 >        "technician": "Joe Smith",
+>
 >        "selectedfile": "receipt.jpg"
+>
 >      }
 
 
