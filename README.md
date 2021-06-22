@@ -49,7 +49,7 @@ Update server.go file to change the port, if desired.
 
 GET /ledgerMessages - return all messages for the configured topic
 
-GET /ledgerMessages/<vin> - return messages for the configured topic filtered by VIN
+GET /ledgerMessages/[ :vin ] - return messages for the configured topic filtered by VIN
 
 POST /ledgerMessages/ - save message
 
