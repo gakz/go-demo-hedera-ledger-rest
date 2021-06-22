@@ -32,7 +32,8 @@ GET /ledgerMessages/<vin> - return messages for the configured topic filtered by
 
 POST /ledgerMessages/ - save message
 
->  expected format
+Expected JSON request format for POST
+>
 >      {
 >
 >        "vin": "GA94234351",
