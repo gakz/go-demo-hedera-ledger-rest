@@ -11,19 +11,19 @@ import (
 	"github.com/joho/godotenv"
 )
 
-type LedgerMessageService interface {
-	Save(model.LedgerMessage) model.LedgerMessage
-	FindAll() []model.LedgerMessage
-	FindByVin(string) []model.LedgerMessage
+type VehicleActionService interface {
+	Save(model.VehicleAction) model.VehicleAction
+	FindAll() []model.VehicleAction
+	FindByVin(string) []model.VehicleAction
 }
 
-type ledgerMessageService struct {
-	ledgerMessages []model.LedgerMessage
+type vehicleActionService struct {
+	vehicleActions []model.VehicleAction
 }
 
-func New() LedgerMessageService {
-	return &ledgerMessageService{
-		ledgerMessages: []model.LedgerMessage{},
+func New() VehicleActionService {
+	return &vehicleActionService{
+		vehicleActions: []model.VehicleAction{},
 	}
 }
 
@@ -55,7 +55,7 @@ func GetHederaClient() *hedera.Client {
 	return client
 }
 
-func (service *ledgerMessageService) Save(ledgerMessage model.LedgerMessage) model.LedgerMessage {
+func (service *vehicleActionService) Save(vehicleAction model.VehicleAction) model.VehicleAction {
 	var client = GetHederaClient()
 
 	myTopicId, err := hedera.TopicIDFromString(os.Getenv("TOPIC_ID"))
@@ -64,7 +64,7 @@ func (service *ledgerMessageService) Save(ledgerMessage model.LedgerMessage) mod
 	}
 	fmt.Printf("The topic ID = %v\n", myTopicId)
 
-	ma, err := json.Marshal(ledgerMessage)
+	ma, err := json.Marshal(vehicleAction)
 	if err != nil {
 		panic(err)
 	}
@@ -93,10 +93,10 @@ func (service *ledgerMessageService) Save(ledgerMessage model.LedgerMessage) mod
 	fmt.Printf("The transaction consensus status is %v\n", transactionStatus)
 	//v2.0.0
 
-	return ledgerMessage
+	return vehicleAction
 }
 
-func (service *ledgerMessageService) FindByVin(searchVin string) []model.LedgerMessage {
+func (service *vehicleActionService) FindByVin(searchVin string) []model.VehicleAction {
 	var client = GetHederaClient()
 
 	myTopicId, err := hedera.TopicIDFromString(os.Getenv("TOPIC_ID"))
@@ -105,13 +105,13 @@ func (service *ledgerMessageService) FindByVin(searchVin string) []model.LedgerM
 	}
 	fmt.Printf("The topic ID = %v\n", myTopicId)
 
-	var results []model.LedgerMessage
+	var results []model.VehicleAction
 
 	sub, err := hedera.NewTopicMessageQuery().
 		SetTopicID(myTopicId).
 		SetStartTime(time.Unix(0, 0)).
 		Subscribe(client, func(message hedera.TopicMessage) {
-			var ma model.LedgerMessage
+			var ma model.VehicleAction
 			err := json.Unmarshal(message.Contents, &ma)
 			if err != nil {
 				println(err.Error(), ": error Unmarshalling")
@@ -137,6 +137,6 @@ func (service *ledgerMessageService) FindByVin(searchVin string) []model.LedgerM
 	return results
 }
 
-func (service *ledgerMessageService) FindAll() []model.LedgerMessage {
+func (service *vehicleActionService) FindAll() []model.VehicleAction {
 	return service.FindByVin("")
 }

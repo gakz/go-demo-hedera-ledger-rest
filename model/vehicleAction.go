@@ -1,6 +1,6 @@
 package model
 
-type LedgerMessage struct {
+type VehicleAction struct {
 	Id               int16  `json:"id"`
 	Vin              string `json:"vin"`
 	WorkDescription  string `json:"workdescription"`

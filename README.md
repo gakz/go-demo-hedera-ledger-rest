@@ -41,17 +41,17 @@ Finally, execute the project.
 > go run server.go
 
 This will start a local webserver that serves the REST API used to create and read Hedera Topic messages.
-THe default URL will be http://localhost:8082/ledgerMessages
+THe default URL will be http://localhost:8082/vehicleActions
 
 Update server.go file to change the port, if desired.
 
 ## End Points
 
-GET /ledgerMessages - return all messages for the configured topic
+GET /vehicleActions - return all messages for the configured topic
 
-GET /ledgerMessages/[ :vin ] - return messages for the configured topic filtered by VIN
+GET /vehicleActions/[ :vin ] - return messages for the configured topic filtered by VIN
 
-POST /ledgerMessages/ - save message
+POST /vehicleActions/ - save message
 
 Expected JSON request format for POST
 >

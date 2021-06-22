@@ -8,8 +8,8 @@ import (
 )
 
 var (
-	ledgerMessageService    service.LedgerMessageService       = service.New()
-	ledgerMessageController controller.LedgerMessageController = controller.New(ledgerMessageService)
+	vehicleActionService    service.VehicleActionService       = service.New()
+	vehicleActionController controller.VehicleActionController = controller.New(vehicleActionService)
 )
 
 func main() {
@@ -17,16 +17,16 @@ func main() {
 	// Enable CORS for requests UI domain (port)
 	router.Use(cors.Default())
 
-	router.GET("/ledgerMessages/:vin", func(ctx *gin.Context) {
-		ctx.JSON(200, ledgerMessageController.FindByVin(ctx.Param("vin")))
+	router.GET("/vehicleActions/:vin", func(ctx *gin.Context) {
+		ctx.JSON(200, vehicleActionController.FindByVin(ctx.Param("vin")))
 	})
 
-	router.GET("/ledgerMessages", func(ctx *gin.Context) {
-		ctx.JSON(200, ledgerMessageController.FindAll())
+	router.GET("/vehicleActions", func(ctx *gin.Context) {
+		ctx.JSON(200, vehicleActionController.FindAll())
 	})
 
-	router.POST("/ledgerMessages", func(ctx *gin.Context) {
-		ctx.JSON(200, ledgerMessageController.Save(ctx))
+	router.POST("/vehicleActions", func(ctx *gin.Context) {
+		ctx.JSON(200, vehicleActionController.Save(ctx))
 	})
 
 	router.Run(":8082")
