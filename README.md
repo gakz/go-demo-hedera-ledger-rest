@@ -71,4 +71,4 @@ Expected JSON request format for POST
 >      }
 
 
-The code for the UI used to interact with this REST API is in this [repository](https://github.com/droatl2000/node-demo-ledger-ui)
+The expected "selectedfile" is an uploaded image for the receipt or work summary.  Eventually, this project will be expanded with functionality to upload this file to a distrubuted storage layer, like [IPFS](https://ipfs.io/). The code for the UI used to interact with this REST API is in this [repository](https://github.com/droatl2000/node-demo-ledger-ui)
