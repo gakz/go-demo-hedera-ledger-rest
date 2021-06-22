@@ -10,7 +10,6 @@ Adiitionally, you will need a Hedera Portal profile. To create your Hedera Porta
 
 Before starting the project, update the .env file with your Hedera Account ID and your Private Key.
 
-## Setup
 ### Set Hedera Credentials
 
 > .env
