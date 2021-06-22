@@ -1,6 +1,6 @@
 # go-demo-ledger-rest
 
-This sample app is a REST API that reads and writes messages to the Hedera distrubuted ledger.  It is written in Go and utilizes the [Hedera Go SDK](https://github.com/hashgraph/hedera-sdk-go). The function of this demo app is to log vehicle maintenance/repairs onto a public, immutable ledger, in this case the Hedera network.  App users could use it to prove they did maintenance on their vehicle, which would be usefull for resale evalution purposes.  Orgazizations, like police departments and repair shops could also use it to record incidents like accident damage.
+This sample app is a REST API that reads and writes messages to the Hedera distrubuted ledger.  It is written in Go and utilizes the [Hedera Go SDK](https://github.com/hashgraph/hedera-sdk-go). The function of this demo app is to log vehicle maintenance/repairs onto a public, immutable ledger, in this case the Hedera network.  App users could use it to prove that they performed regualar maintenance on their vehicle, which would be usefull for resale evalution purposes.  Orgazizations, like police departments and repair shops could also use it to record incidents like accident damage.  Think of it as a decentralized [Carfax](https://www.carfax.com/vehicle-history-reports/).
 
 ## Setup
 
