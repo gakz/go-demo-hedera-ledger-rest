@@ -8,7 +8,7 @@ This sample app assumes you have already installed the GO distribution.  If not,
 
 Adiitionally, you will need a Hedera Portal profile. To create your Hedera Portal profile register [here](https://portal.hedera.com/register).  Once registered, you'll need to note your Account ID and your Private Key.  These credential will be used by the the app to access any Hedera network services uned in the demo.
 
-Before starting the project, update the .env file with your Hedera Account ID and your Private Key.
+Before starting the project, create an .env file in the project root directory.  This file will store environemtn variable, such as your Hedera Account ID, your Private Key, and Topic IDs used by the app.
 
 ### Set Hedera Credentials
 
@@ -50,11 +50,11 @@ Update server.go file to change the port, if desired.
 
 ## End Points
 
-GET /vehicleEvents - return all messages for the configured topic
+GET /vehicleEvents - return all messages for the vehicle event topic
 
-GET /vehicleEvents/[ :vin ] - return messages for the configured topic filtered by VIN
+GET /vehicleEvents/[ :vin ] - return messages for the vehicle event topic filtered by VIN
 
-POST /vehicleEvents/ - save message
+POST /vehicleEvents/ - save vehicle event to topic
 
 Expected JSON request format for POST
 >
@@ -72,6 +72,43 @@ Expected JSON request format for POST
 >
 >      }
 
+GET /verifiedServicer - return all messages for the verified servicer topic
+
+POST /verifiedServicer/ - save vehicle event to topic
+
+Expected JSON request format for POST
+>
+> {
+>
+>     "id": "1",
+>
+>     "name": "Jiffy Lube #241",
+>
+>     "streetaddress": "11 Oak Mill Rd.",
+>
+>     "city": "Mephis",
+>
+>     "postalcode": "54322",
+>
+>     "country": "USA",
+>
+>     "services": [
+>
+>         ["Oil Change", 20],
+>         ["Brakes",120],
+>         ["Trans Fluid Drain",75]
+>
+>     ],
+>
+>     "technicians": [
+>
+>         ["Alton Green", 1],
+>         ["Raj Patel", 2],
+>         ["Mary Cook", 3]
+>
+>     ]
+>
+> }
 
 The expected "selectedfile" is an uploaded image for the receipt or work summary.  Eventually, this project will be expanded with functionality to upload this file to a distrubuted storage layer, like [IPFS](https://ipfs.io/). 
   
