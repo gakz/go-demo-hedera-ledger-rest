@@ -1,6 +1,6 @@
 package model
 
-type VehicleAction struct {
+type VehicleEvent struct {
 	Id               int16  `json:"id"`
 	Vin              string `json:"vin"`
 	WorkDescription  string `json:"workdescription"`

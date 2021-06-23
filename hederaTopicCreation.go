@@ -35,7 +35,7 @@ func main() {
 	client.SetOperator(myAccountId, myPrivateKey)
 
 	createTopic(client, "Public Vehicle Event Ledger")
-	createTopic(client, "Authorized Vehicle Servicer Ledger")
+	createTopic(client, "Verified Vehicle Servicer Ledger")
 
 }
 
